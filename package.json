@@ -7,11 +7,15 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
+    "startclean": "react-native start --reset-cache",
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^1.6.7",
+    "nativewind": "^2.0.11",
     "react": "18.2.0",
-    "react-native": "0.73.3"
+    "react-native": "0.73.3",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -28,6 +32,7 @@
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
+    "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
   "engines": {
