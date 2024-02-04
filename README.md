@@ -8,6 +8,7 @@ View and edit a google sheet from React Native.
   - Follow [this guide](https://theoephraim.github.io/node-google-spreadsheet/#/guides/authentication?id=service-account) to set up a Google service account
   - Create a google sheets, share it with the Google service email, and make sure it is an editor
   - Set environment variables `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`, and `SPREADSHEET_ID` to the service account's email, private key, and google sheet id respectively
+  - Optionally, add a `PORT` environment variable to change the port of the node server
 - `npm install`
 - `npm run start`
 - In a separate window, do `npm run android` or `npm run ios`
