@@ -4,7 +4,8 @@ import axios, { AxiosError } from 'axios';
 import TextModal from './TextModal';
 
 export default function SheetView() {
-    const baseApiDomain = Platform.OS === 'android' ? 'http://10.0.2.2:5000' : 'http://localhost:5000';
+    const port = process?.env?.PORT || 5000;
+    const baseApiDomain = Platform.OS === 'android' ? `http://10.0.2.2:${port}` : `http://localhost:${port}`;
     const [data, setData] = useState([['']]);
     const [maxRowLen, setMaxRowLen] = useState(1);
     const [page, setPage] = useState(0);
