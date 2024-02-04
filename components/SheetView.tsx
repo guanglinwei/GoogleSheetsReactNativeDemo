@@ -1,9 +1,10 @@
-import { Text, ScrollView, View, Button, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Text, ScrollView, View, Button, TouchableOpacity, TouchableWithoutFeedback, Platform } from 'react-native';
 import React, { useCallback, useEffect, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import TextModal from './TextModal';
 
 export default function SheetView() {
+    const baseApiDomain = Platform.OS === 'android' ? 'http://10.0.2.2:5000' : 'http://localhost:5000';
     const [data, setData] = useState([['']]);
     const [maxRowLen, setMaxRowLen] = useState(1);
     const [page, setPage] = useState(0);
@@ -14,7 +15,7 @@ export default function SheetView() {
     const getSheetData = () => {
         if (isLoading) return;
         setIsLoading(true);
-        axios.get('http://10.0.2.2:5000/api/data/' + page, {
+        axios.get(`${baseApiDomain}/api/data/` + page, {
             data: undefined
         }).then((res) => {
             const d = res?.data || undefined;
@@ -51,7 +52,7 @@ export default function SheetView() {
         if (isLoading) return;
         // const cell = coordsToCell(r, c);
         setIsLoading(true);
-        axios.post('http://10.0.2.2:5000/api/edit', {
+        axios.post(`${baseApiDomain}/api/edit`, {
             cell: cell,
             data: str
         }).then(() => {
