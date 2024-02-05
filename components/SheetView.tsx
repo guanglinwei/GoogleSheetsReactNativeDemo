@@ -2,9 +2,10 @@ import { Text, ScrollView, View, Button, TouchableOpacity, TouchableWithoutFeedb
 import React, { useCallback, useEffect, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import TextModal from './TextModal';
+import { PORT } from '@env';
 
 export default function SheetView() {
-    const port = process?.env?.PORT || 5000;
+    const port = PORT || 5000;
     const baseApiDomain = Platform.OS === 'android' ? `http://10.0.2.2:${port}` : `http://localhost:${port}`;
     const [data, setData] = useState([['']]);
     const [maxRowLen, setMaxRowLen] = useState(1);
@@ -87,7 +88,7 @@ export default function SheetView() {
     return (
         <>
             {coordsArrToCell(modalTargetCell) === '' ? undefined :
-                <TextModal 
+                <TextModal
                     visible={coordsArrToCell(modalTargetCell) !== ''}
                     onClose={onCloseModal}
                     value={data[modalTargetCell[0]][modalTargetCell[1]]}
